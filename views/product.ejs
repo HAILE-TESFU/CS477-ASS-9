@@ -1,0 +1,39 @@
+<%- include('fragments/head.ejs')%>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+     <!--include navigation.ejs-->
+     <%- include('fragments/navigation.ejs')%>
+
+
+    <main>
+        <h1>List of all the products</h1>
+        <% for (let key of prod) {%>
+        <div class="container">
+            <article class="card product-item">
+               <div class="product__title"><%= key.title%> -$<%= key.price%></div>
+
+                <div class="panel-body"><img src="<%= key.imageUrl%>" class="img-responsive"
+                    style="width:100%" alt="Image"></div> 
+
+
+                <div class="product__title"><%= key.description%></div>
+
+               
+                <div class="card__actions">
+                    <a class="btn-primary" href="/detail-product/<%= key._id%>" role="button">View Detail</a>
+                 
+                    <a class="btn-primary" href="/buy-product/<%= key._id%>" role="button">Add to Cart</a>
+                   
+                    
+
+                </div>               
+
+            </article>
+        </div> </br></br>
+        <% }%>
+
+    </main>
+<!--include end.ejs-->
+<%- include('fragments/end.ejs')%>
